@@ -1,11 +1,9 @@
 spring:
-#  h2:
-#    console:
-#      enabled: true
+
   datasource:
     url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
+    username: rm553472
+    password: 100593
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:

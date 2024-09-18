@@ -58,7 +58,7 @@ public class AlunoController {
    */
   @GetMapping
   public ResponseEntity<String> getAlunos(@RequestParam(required = false) List<String> sala) {
-    return ResponseEntity.ok("Hello World");
+    return ResponseEntity.ok("Rota para consultar sala");
   }
 
   /**
@@ -104,6 +104,24 @@ public class AlunoController {
   @GetMapping("/{alunoId}")
   public ResponseEntity<String> getAluno(@PathVariable String alunoId) {
     Optional<Aluno> byId = alunoRepository.findById(alunoId);
-    return ResponseEntity.ok("Hello World");
+    return ResponseEntity.ok("Aluno Id");
+  }
+
+  @GetMapping("/apelido/{apelido}")
+  public ResponseEntity<String> getAlunoPorApelido(@PathVariable String apelido) {
+    Optional<Aluno> optionalAluno = alunoRepository.findById(apelido);
+    return ResponseEntity.ok("Apelido");
+  }
+
+  @GetMapping("/materia-preferida/{materia}")
+  public ResponseEntity<String> getAlunoPorMateria(@PathVariable String materia) {
+    List<Aluno> alunosByMateriaPreferida = alunoRepository.findAlunoByMateriaPreferida(materia);
+    return ResponseEntity.ok("Materia Preferida");
+  }
+
+  @GetMapping("/data/{dataDaMatricula}")
+  public ResponseEntity<String> getAlunoDataDaMatricula(@PathVariable LocalDate dataDaMatricula) {
+    List<Aluno> alunoDataMatricula = alunoRepository.findAlunoByDataDaMatriculaAfter(dataDaMatricula);
+    return ResponseEntity.ok("Data sugerida"  );
   }
 }

@@ -35,6 +35,7 @@ public class DemoApplication {
 					.build())
 				.dataDaMatricula(now)
 				.apelido("" + i)
+					.materiaPreferida("JavaAdvanced")
 				.build();
 			alunoRepository.save(alunoASerCadastrado);
 		}
