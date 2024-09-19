@@ -119,6 +119,15 @@ public class AlunoController {
     return ResponseEntity.ok("Materia Preferida");
   }
 
+  @GetMapping("/materia-preferida-apelido/{materia}/apelido")
+  public ResponseEntity<String> getAlunoPorMateriaPreferidaAndApelido(@PathVariable String materia, String apelido) {
+    List<Aluno> alunosByMateriaPreferidaAndApelido = alunoRepository.findAlunoByMateriaPreferidaAndApelido(materia, apelido);
+    return ResponseEntity.ok("Materia Preferida e apelido");
+    //return ResponseEntity.status(HttpStatus.CREATED).body(alunosByMateriaPreferidaAndApelido.toString());
+  }
+
+
+
   @GetMapping("/data/{dataDaMatricula}")
   public ResponseEntity<String> getAlunoDataDaMatricula(@PathVariable LocalDate dataDaMatricula) {
     List<Aluno> alunoDataMatricula = alunoRepository.findAlunoByDataDaMatriculaAfter(dataDaMatricula);

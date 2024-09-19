@@ -13,6 +13,8 @@ public interface AlunoRepository extends JpaRepository<Aluno, String> {
 
     List<Aluno> findAlunoByMateriaPreferida(String materiaPreferida);
 
+    List<Aluno> findAlunoByMateriaPreferidaAndApelido(String materia, String apelido);
+
     List<Aluno> findAlunoByDataDaMatriculaAfter(LocalDate dataDaMatricula);
 
 }
